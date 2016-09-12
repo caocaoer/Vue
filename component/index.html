@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+<!--    <script type="text/javascript" src="../utils/jquery.min.js"></script>-->
+    <script type="text/javascript" src="../utils/vue.min.js"></script>
+</head>
+<body id="component">
+<!--
+    <div v-for="arr in arrs">
+       {{arr.a}}
+    </div>
+-->
+   
+    <template id="mineTpl" keep-alive>
+       <p></p>
+        <mine>
+           <p :model="name"></p>
+        </mine>
+    </template>
+    
+    <script type="text/javascript">
+        Vue.component('mine', {
+            template: '#mineTpl',
+            props: ['name', 'title', 'city', 'content']
+        });
+        
+        new Vue({
+            el: '#component',
+            data: {
+                name: 'zhang',
+                title: 'this is title',
+                city: 'chengdu',
+                content: 'these are some desc about blog',
+                arrs: [{a: 'aa',b:'bb'}]
+            }
+        });
+    
+    </script>
+</body>
+</html>
